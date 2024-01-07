@@ -42,7 +42,7 @@ cloudinary.config({
 app.use(express.json())
 app.use(express.urlencoded({extended:true, limit:'16kb'}))
 app.use(cookieParser())
-app.use(cors({origin:'https://mernstack-frontend-phi.vercel.app',credentials:true}))
+app.use(cors({origin:`${req.protocol}:${req.get('host')}`,credentials:true}))
 connectDB()
 .then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
