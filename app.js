@@ -42,7 +42,7 @@ cloudinary.config({
 app.use(express.json())
 app.use(express.urlencoded({extended:true, limit:'16kb'}))
 app.use(cookieParser())
-app.use(cors({origin:'http://localhost:3000',credentials:true}))
+app.use(cors({origin:`${req.protocol}:${req.get('host')}`,credentials:true}))
 connectDB()
 .then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
@@ -60,9 +60,9 @@ app.use(productRoutes)
 app.use(paymentRoutes)
 app.use(orderRoutes)
 
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
-})
+// app.use(express.static(path.join(__dirname, '../frontend/build')))
+// app.get('*',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
+// })
 
 app.use(errorMiddleware)
