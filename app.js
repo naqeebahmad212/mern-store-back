@@ -11,6 +11,8 @@ const {connectDB}=require('./config/db')
  const productRoutes=require('./routes/productRoutes')
  const paymentRoutes=require('./routes/paymentRoutes')
  const orderRoutes=require('./routes/orderRoutes')
+app.use(cors({origin:"https://mernstack-frontend-phi.vercel.app",credentials:true}));
+
  dotenv.config({
     path:'./config/.env'
 })
@@ -42,7 +44,6 @@ cloudinary.config({
 app.use(express.json())
 app.use(express.urlencoded({extended:true, limit:'16kb'}))
 app.use(cookieParser())
-app.use(cors({origin:'http://localhost:3000',credentials:true}))
 connectDB()
 .then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
