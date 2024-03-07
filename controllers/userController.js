@@ -48,7 +48,7 @@ const logout_user = (req, res, next) => {
 const get_userDetails = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user._id);
   if (!user) {
-    next(new ApiErrorHandler("UnAuthorize", 401));
+    next(new ApiErrorHandler("UnAuthorize user", 401));
   }
   res.status(200).json({ user, success: true });
 });
@@ -112,12 +112,10 @@ const forgotPassword = asyncHandler(async (req, res, next) => {
       subject: "Password recovery",
     });
 
-    res
-      .status(200)
-      .json({
-        message: "Email was to sent to your register email",
-        succuss: true,
-      });
+    res.status(200).json({
+      message: "Email was to sent to your register email",
+      succuss: true,
+    });
   } catch (err) {
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
