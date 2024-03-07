@@ -6,7 +6,7 @@
       "src": "/(.*)",
       "dest": "/",
       "headers": {
-        "Access-Control-Allow-Origin": "https://mernstack-frontend-phi.vercel.app",
+        "Access-Control-Allow-Origin": "https://mern-store-front.vercel.app",
         "Access-Control-Allow-Credentials": "true"
       }
     }
