@@ -1,20 +1,14 @@
 {
-    "version":2,
-    "builds":[ 
-       {  "src":"*.js", "use":"@vercel/node"}
-],
-"routes":[
+  "version": 2,
+  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+  "routes": [
     {
-        "src":"/(.*)",
-        "dest":"/app.js",
-<<<<<<< HEAD
-        "method":["GET","POST","DELETE","PUT","PATCH","OPTIONS"],
-=======
->>>>>>> a94b5f4b81a57eb6d8d6c09b123bd8692c27dcec
-        "headers":{
-            "Access-Control-Allow-Origin":"https://mernstack-frontend-phi.vercel.app",
-            "Access-Control-Allow-Credentials":"true"
-        }
+      "src": "/(.*)",
+      "dest": "/",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://mernstack-frontend-phi.vercel.app",
+        "Access-Control-Allow-Credentials": "true"
+      }
     }
-]
+  ]
 }
