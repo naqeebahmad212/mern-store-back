@@ -6,7 +6,7 @@ const sendToken = (user, res, statusCode) => {
     .cookie("jwtToken", token, {
       httpOnly: true,
       expiresIn: maxAge,
-      secure: true,
+      path: "/",
       sameSite: "none",
     })
     .status(statusCode)
