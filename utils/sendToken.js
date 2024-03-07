@@ -7,7 +7,7 @@ const sendToken = (user, res, statusCode) => {
       httpOnly: true,
       expiresIn: maxAge,
       secure: true,
-      sameSite: none,
+      sameSite: "none",
     })
     .status(statusCode)
     .json({ message: "login", user });
