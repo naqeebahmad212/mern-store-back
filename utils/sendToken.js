@@ -7,6 +7,7 @@ const sendToken = (user, res, statusCode) => {
       httpOnly: true,
       expiresIn: maxAge,
       path: "/",
+      secure: true,
       sameSite: "none",
     })
     .status(statusCode)
